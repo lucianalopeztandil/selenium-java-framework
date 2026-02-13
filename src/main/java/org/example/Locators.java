@@ -6,15 +6,13 @@ import page_objects.FirstPage;
 import page_objects.LoginPage;
 import page_objects.PasswordPage;
 
-import java.time.Duration;
-
 public class Locators {
     static void main() {
         WebDriver driver = new ChromeDriver();
         FirstPage firstPage = new FirstPage(driver);
         driver.get("https://rahulshettyacademy.com/locatorspractice/");
         firstPage.executeLogin("Rahul", "Hello1234");
-        firstPage.printError();
+        System.out.println(firstPage.getMessageError());
         firstPage.clickForgotPassword();
         PasswordPage passwordPage = new PasswordPage(driver);
         passwordPage.resetData("Evelyn", "eveTand@gmail.com");
@@ -25,7 +23,7 @@ public class Locators {
 
         firstPage.executeLogin("Evelyn", password);
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.printSucessMessage();
+        System.out.println(loginPage.getSucessMessage());
 
         driver.close();
     }

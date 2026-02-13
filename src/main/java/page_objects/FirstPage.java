@@ -29,8 +29,8 @@ public class FirstPage extends BasePage {
         clickBtn(signInBtn);
     }
 
-    public void printError(){
-        System.out.println(driver.findElement(error).getText());
+    public String getMessageError(){
+        return getText(error);
     }
 
     public void clickForgotPassword(){

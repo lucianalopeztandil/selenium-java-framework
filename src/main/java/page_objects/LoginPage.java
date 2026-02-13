@@ -11,7 +11,7 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void printSucessMessage(){
-        System.out.println(driver.findElement(loginMsg).getText());
+    public String getSucessMessage(){
+        return getText(loginMsg);
     }
 }
