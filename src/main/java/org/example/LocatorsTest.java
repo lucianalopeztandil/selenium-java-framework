@@ -2,21 +2,33 @@ package org.example;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import page_objects.FirstPage;
 import page_objects.LoginPage;
 import page_objects.PasswordPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Locators {
+public class LocatorsTest {
 
-    private static final Logger logger = LogManager.getLogger(Locators.class);
+    private static final Logger logger = LogManager.getLogger(LocatorsTest.class);
+    WebDriver driver;
 
-    static void main() {
-        WebDriver driver = new ChromeDriver();
-        FirstPage firstPage = new FirstPage(driver);
+    @BeforeMethod
+    public void setup() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        driver = new ChromeDriver(options);
+
+    }
+
+    @Test
+    public void executionLocators() {
         driver.get("https://rahulshettyacademy.com/locatorspractice/");
+        FirstPage firstPage = new FirstPage(driver);
         firstPage.executeLogin("Rahul", "Hello1234");
         logger.info("Se ejecuta el primer login incorrecto.");
         System.out.println(firstPage.getMessageError());
