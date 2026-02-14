@@ -3,10 +3,10 @@ package page_objects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import page_objects.general.BasePage;
 
-import java.time.Duration;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class FirstPage extends BasePage {
 
@@ -15,6 +15,7 @@ public class FirstPage extends BasePage {
     private By signInBtn = By.className("signInBtn");
     private By error = By.className("error");
     private By forgotPassword = By.linkText("Forgot your password?");
+    private static final Logger logger = LogManager.getLogger(FirstPage.class);
 
     public FirstPage(WebDriver driver){
         super(driver);
@@ -23,9 +24,9 @@ public class FirstPage extends BasePage {
     public void executeLogin(String username, String password){
         driver.findElement(inputUsername).sendKeys(username);
         driver.findElement(inputPassword).sendKeys(password);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(
                 By.className("overlay-panel")));
+        logger.info("Se procede a ejecutar el login del usuario " + username);
         clickBtn(signInBtn);
     }
 

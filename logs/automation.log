@@ -1,0 +1,6 @@
+2026-02-13 17:35:14 INFO  FirstPage:32 - Se procede a ejecutar el login del usuario Rahul con password Hello1234
+2026-02-13 17:35:14 INFO  Locators:21 - Se ejecuta el primer login incorrecto.
+2026-02-13 17:35:15 INFO  Locators:23 - Se selecciona el link de olvido de password
+2026-02-13 17:35:15 INFO  Locators:26 - Se resetea el password con el usuario de Evelyn.
+2026-02-13 17:35:16 INFO  Locators:33 - Se ejecuta el loguin con los datos correctos.
+2026-02-13 17:35:16 INFO  FirstPage:32 - Se procede a ejecutar el login del usuario Evelyn con password rahulshettyacademy
